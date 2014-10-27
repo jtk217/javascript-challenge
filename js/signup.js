@@ -82,6 +82,7 @@ function validateForm(form) {
     var zipField = form.elements['zip'];
     var zipRegEx = new RegExp('^\\d{5}$');
     if (!zipRegEx.test(zipField.value)) {
+        formValid = false;
         zipField.className = 'form-control invalid-field';
     }
     else {
@@ -104,6 +105,7 @@ function validateForm(form) {
 
         var birthdateMessage = document.getElementById('birthdateMessage');
         if (yearsDiff < 13) {
+            formValid = false;
             ageField.className = 'form-control invalid-field';
             birthdateMessage.innerHTML = "Sorry kiddo, gotta be at least 13 to make the poor decision of releasing your information to the world wide web."
         }
